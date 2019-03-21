@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-war" name="jihoon">
-    <output-path>$PROJECT_DIR$/out/artifacts/jihoon</output-path>
-    <root id="root" />
-  </artifact>
-</component>
