@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class ApiApplication implements CommandLineRunner {
@@ -19,8 +20,10 @@ public class ApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        userRepository.save(new User("member1"));
-        userRepository.save(new User("member2"));
-        userRepository.save(new User("member3"));
+
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        userRepository.save(new User("member1",bCryptPasswordEncoder.encode("member1!")));
+        userRepository.save(new User("member2",bCryptPasswordEncoder.encode("member2!")));
+        userRepository.save(new User("member3",bCryptPasswordEncoder.encode("member3!")));
     }
 }
